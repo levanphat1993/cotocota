@@ -4,13 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\web\Response;
+use app\models\SignupForm;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\VerifyUserForm;
+
 
 class SiteController extends Controller
 {
-  
 
     /**
      * Displays homepage.
@@ -23,64 +23,64 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
+     * Displays dashboard.
      *
      * @return string
      */
-    public function actionAbout()
+    public function actionDashboard()
     {
-        return $this->render('about');
+        return $this->render('dashboard');
+    }
+
+    /**
+     * Displays login.
+     *
+     * @return string
+     */
+    public function actionLogin()
+    {
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect('dashboard');
+        }
+
+        return $this->render('login', [
+            'model' => $model
+        ]);
+    }
+
+    /**
+     * Displays signup.
+     *
+     * @return string
+     */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+            return $this->redirect('verify-user');
+        }
+
+        return $this->render('signup', [
+            'model' => $model
+        ]);
+    }
+
+    /**
+     * Displays verify user.
+     *
+     * @return string
+     */
+    public function actionVerifyUser()
+    {
+       
+        $model = new VerifyUserForm();
+        if ($model->load(Yii::$app->request->post()) && $model->verifyUser()) {
+            return $this->redirect('login');
+        }
+
+        return $this->render('verifyuser', [
+            'model' => $model
+        ]);
     }
 }
