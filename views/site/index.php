@@ -32,7 +32,7 @@
       
 
         
-         <!-- <section class="about-wrap style1 ptb-100">
+         <section class="about-wrap style1 ptb-100">
             <div class="container">
                <div class="row gx-5 align-items-center">
                   <div class="col-lg-6">
@@ -592,4 +592,4 @@
                   </div>
                </div>
             </div>
-         </section> -->
+         </section>
