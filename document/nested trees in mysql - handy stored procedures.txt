@@ -1,0 +1,85 @@
+
+id (the nodes id)
+parent_id (the nodes parent - pretty clasic)
+name (the textual name of the node)
+seqid - the generated order item for the whole tree
+depth - how deep the node is (usefull for indenting)
+leaf - is it a leaf node (eg. has no children) - usefull for icons'
+
+
+
+
+ 
+delete from _tree_; alter table _tree_ AUTO_INCREMENT =1 ;
+ 
+select _Tree__add_node(0,0, 'Home'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(1,0, 'Home1'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(1,0, 'Home2'); 
+call _Tree__resequence(':');
+ 
+ 
+select _Tree__add_node(0,0, 'Services'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(4,0, 'Our Service'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(4,0, 'Service Single'); 
+call _Tree__resequence(':');
+
+
+select _Tree__add_node(0,0, 'Pages'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'About us'); 
+call _Tree__resequence(':');
+ 
+select _Tree__add_node(7,0, 'Feature Item'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Gallery'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Search By Location'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Make Reservation'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Our App'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Testimonials'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'FAQ'); 
+call _Tree__resequence(':');
+
+
+select _Tree__add_node(7,0, 'User'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(16,7, 'Login'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(16,7, 'Register'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(16,7, 'Forgot Password'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Privacy Policy'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, 'Terms; Conditions'); 
+call _Tree__resequence(':');
+
+select _Tree__add_node(7,0, '404 Error'); 
+call _Tree__resequence(':');
+
+  
+SELECT * FROM _tree_ ORDER BY seqid;
