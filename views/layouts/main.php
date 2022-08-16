@@ -5,7 +5,7 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
-
+use yii\helpers\Url;
 
 AppAsset::register($this);
 
@@ -104,7 +104,7 @@ AppAsset::register($this);
                <div class="header-bottom">
                   <div class="row align-items-center">
                      <div class="col-xl-3 col-lg-6 col-md-6 col-5">
-                        <a href="index.html" class="logo"><img src="<?= Yii::getAlias('@web').'/hibootstrap/img/logo-white.png' ?>" alt="Image"></a>
+                        <a href="<?= Url::to(['site/index']); ?>" class="logo"><img src="<?= Yii::getAlias('@web').'/hibootstrap/img/logo-white.png' ?>" alt="Image"></a>
                      </div>
                      <div class="col-xl-6 col-lg-6 col-md-6 col-7">
                         <div class="main-menu-wrap">
@@ -113,115 +113,20 @@ AppAsset::register($this);
                            </div>
                            <div id="menu">
                               <ul class="main-menu list-style">
-                                 <li class="has-children">
-                                    <a class="active" href="#">Home</a>
-                                    <ul class="sub-menu list-style">
-                                       <li>
-                                          <a class="active" href="index.html">Home 1</a>
-                                       </li>
-                                       <li><a href="index-2.html">Home 2</a></li>
-                                       <li><a href="index-3.html">Home 3</a></li>
-                                    </ul>
+                                 <li >
+                                    <a href="<?= Url::to(['site/services']); ?>">Services</a>
                                  </li>
-                                 <li class="has-children">
-                                    <a href="#">Services</a>
-                                    <ul class="sub-menu list-style">
-                                       <li><a href="services.html">Our Service</a></li>
-                                       <li>
-                                          <a href="service-details.html">Service Single</a>
-                                       </li>
-                                    </ul>
+                                 <li >
+                                    <a href="<?= Url::to(['site/gallery']); ?>">Gallery</a>
                                  </li>
-                                 <li class="has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu list-style">
-                                       <li><a href="about.html">About us</a></li>
-                                       <li><a href="feature.html">Feature Item</a></li>
-                                       <li><a href="gallery.html">Gallery</a></li>
-                                       <li><a href="search-location.html">Search By Location</a></li>
-                                       <li><a href="reservation.html">Make Reservation</a></li>
-                                       <li><a href="app.html">Our App</a></li>
-                                       <li><a href="testimonials.html">Testimonials</a></li>
-                                       <li><a href="faq.html">FAQ</a></li>
-                                       <li class="has-children">
-                                          <a href="#">User</a>
-                                          <ul class="sub-menu list-style">
-                                             <li>
-                                                <a href="login.html">Login</a>
-                                             </li>
-                                             <li>
-                                                <a href="register.html">Register</a>
-                                             </li>
-                                             <li>
-                                                <a href="forgot-pwd.html">Forgot Password</a>
-                                             </li>
-                                          </ul>
-                                       </li>
-                                       <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                       <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-                                       <li><a href="404.html">404 Error</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="has-children">
-                                    <a href="#">Shop</a>
-                                    <ul class="sub-menu list-style">
-                                       <li class="has-children">
-                                          <a href="#">Shop Layout</a>
-                                          <ul class="sub-menu list-style">
-                                             <li>
-                                                <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                             </li>
-                                             <li>
-                                                <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                             </li>
-                                             <li>
-                                                <a href="shop-no-sidebar.html">Shop Grid</a>
-                                             </li>
-                                          </ul>
-                                       </li>
-                                       <li>
-                                          <a href="shop-details.html">Shop Single</a>
-                                       </li>
-                                       <li>
-                                          <a href="cart.html">Cart</a>
-                                       </li>
-                                       <li>
-                                          <a href="wishlist.html">Wishlist</a>
-                                       </li>
-                                       <li>
-                                          <a href="checkout.html">Checkout</a>
-                                       </li>
-                                    </ul>
-                                 </li>
-                                 <li class="has-children">
-                                    <a href="#">Blog</a>
-                                    <ul class="sub-menu list-style">
-                                       <li class="has-children">
-                                          <a href="#">Blog Layout</a>
-                                          <ul class="sub-menu list-style">
-                                             <li><a href="blog-no-sidebar.html">Blog Grid </a></li>
-                                             <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                             <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                          </ul>
-                                       </li>
-                                       <li class="has-children">
-                                          <a href="#">Blog Single</a>
-                                          <ul class="sub-menu list-style">
-                                             <li><a href="blog-details-no-sidebar.html">Blog Single No
-                                                Sidebar</a>
-                                             </li>
-                                             <li><a href="blog-details-left-sidebar.html">Blog Single Left
-                                                Sidebar</a>
-                                             </li>
-                                             <li><a href="blog-details-right-sidebar.html">Blog Single Right
-                                                Sidebar</a>
-                                             </li>
-                                          </ul>
-                                       </li>
-                                    </ul>
+                                 <li >
+                                    <a href="<?= Url::to(['site/about']); ?>">About</a>
                                  </li>
                                  <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="<?= Url::to(['site/contact']); ?>">Contact</a>
+                                 </li>
+                                 <li>
+                                    <a href="<?= Url::to(['site/login']); ?>">Login</a>
                                  </li>
                               </ul>
                            </div>
@@ -244,8 +149,8 @@ AppAsset::register($this);
                      <div class="col-xl-3 lg-none">
                         <div class="header-bottom-right">
                            <a href="cart.html" class="shopcart">
-                           <i class="las la-shopping-cart"></i>
-                           <span>1</span>
+                              <i class="las la-shopping-cart"></i>
+                              <span>1</span>
                            </a>
                            <a href="reservation.html" class="btn style1">Make Reservation <i class="flaticon-right-arrow-2"></i> </a>
                         </div>
