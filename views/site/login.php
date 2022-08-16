@@ -29,7 +29,40 @@
                             <h2 class="text-center mb-0">Login</h2>
                         </div>
                         <div class="login-body">
-                            <form class="form-wrap" action="#">
+
+                
+
+                            <form class="form-wrap" action="<?= yii\helpers\Url::to(['site/login']); ?>" method="POST">
+
+                                <input type="hidden" name="_csrf" value="<?= $csrfToken ?>">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-lg-12"> <!-- User name -->
+                                            <div class="form-group">
+                                                <label for="username">Username</label>
+                                                <input type="text" id="username" class="form-control" name="LoginForm[username]" required="true">
+                                            </div>
+                                    </div>
+
+                                    <div class="col-lg-12"> <!-- Password -->
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="text" id="password" class="form-control" name="LoginForm[password]" required="true">
+                                            </div>
+                                    </div>
+
+                                    <div class="col-lg-12"> <!-- Login -->
+                                            <div class="form-group">
+                                                <button type="submit" class="btn style1 w-100 d-block">Log In</button>
+                                            </div>
+                                    </div>
+                                    
+                                </div>
+                   
+                            </form>
+<!-- 
+                            <form class="form-wrap" action="#" method="POST">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
@@ -54,7 +87,6 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <button class="btn style1 w-100 d-block">Log In</button>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -81,7 +113,7 @@
                                         <p class="mb-0">Don’t Have an Account? <a class="link style2" href="register.html">Create One</a></p>
                                     </div>
                                 </div>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                 </div>

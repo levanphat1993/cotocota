@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 
+use app\models\form\LoginForm;
+
 class SiteController extends Controller
 {
 
@@ -25,7 +27,23 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        return $this->render('login');
+      
+        $csrfToken = Yii::$app->request->csrfToken;
+
+        if (Yii::$app->request->post()) { // check method is post
+            
+            $data = Yii::$app->request->post();
+            $model = new LoginForm();
+            $model->load($data); // init data by form
+
+            if ($model->login()) {
+                $this->redirect('dashboard');
+            }
+            
+
+        }
+        
+        return $this->render( 'login', ['csrfToken' => $csrfToken ]);
     }
 
     /**
